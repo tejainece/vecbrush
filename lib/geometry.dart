@@ -47,3 +47,38 @@ class Vector {
 
   Vector operator -(Vector other) => Vector(x: x - other.x, y: y - other.y);
 }
+
+class Rect {
+  final num left;
+
+  final num top;
+
+  final num width;
+
+  final num height;
+
+  Rect({this.left: 0, this.top: 0, this.width: 0, this.height: 0});
+
+  Rect.fromBounds({num left, num right, num top, num bottom})
+      : left = math.min(left, right),
+        top = math.min(top, bottom),
+        width = (right - left).abs(),
+        height = (bottom - top).abs();
+
+  double get area => width * height;
+
+  num get right => left + width;
+
+  num get bottom => top + height;
+
+  Point get topLeft => Point(x: left, y: top);
+
+  Point get topRight => Point(x: right, y: top);
+
+  Point get bottomLeft => Point(x: left, y: bottom);
+
+  Point get bottomRight => Point(x: right, y: bottom);
+
+  String toString() =>
+      "Rect(left: $left, top: $top, right: $right, bottom: $bottom)";
+}

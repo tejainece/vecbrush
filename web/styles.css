@@ -12,3 +12,10 @@ html, body {
   padding: 20px;
   text-align: center;
 }
+
+
+.bbox {
+  fill: none;
+  stroke: blue;
+  stroke-dasharray: 4 4;
+}
